@@ -1,9 +1,9 @@
 ﻿namespace autojump;
 
 /// <summary>
-/// Callback holder for easier unit testing and mocking -> GetUserDir & StoreLookup
+/// Callback holder for easier unit testing and mocking
 /// </summary>
-public sealed class Lookups
+public sealed class Lookups // could also be named context or similar things
 {
     public Action<string> Log { get; set; }
     public Func<string> GetUserDir { get; set; }

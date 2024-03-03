@@ -2,6 +2,9 @@
 
 namespace autojump;
 
+/// <summary>
+/// Configuration for the application
+/// </summary>
 public static class Config
 {
     public static Configuration ReadConfig()

@@ -12,6 +12,13 @@ public static class Program
         var lookups = Lookups.Default;
         lookups.Configuration = config;
         lookups.StoreLookup = SqliteStore.Lookup;
+        lookups.Log = msg => 
+        {
+            if (config.LogsEnabled)
+            {
+                Console.WriteLine(msg);
+            }
+        };
         lookups.LastAccessedAndCurrentCount_ToNewCount = Bump;
 
         // run actual command and return result to sdout

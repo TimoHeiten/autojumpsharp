@@ -7,8 +7,11 @@ namespace autojump;
 [DebuggerDisplay("{Name} + {string.Join(\",\", _args)}")]
 public readonly struct Args : IEnumerable<string>
 {
-    private readonly ArraySegment<string> _args;
+    /// <summary>
+    /// The identified command name
+    /// </summary>
     public string Name { get; }
+    private readonly ArraySegment<string> _args;
 
     public Args(string[] args)
     {
@@ -36,7 +39,5 @@ public readonly struct Args : IEnumerable<string>
     {
         public const string CD = "cd";
         public const string Bump = "bump";
-
-        public static string[] All { get; } = { CD, Bump };
     }
 }

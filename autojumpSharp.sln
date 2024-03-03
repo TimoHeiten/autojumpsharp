@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "autojump", "src\autojump\au
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1490437E-9551-451B-A5AC-D3AAB33D9363}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "autojump", "tests\autojump\autojump.csproj", "{CF18D029-93D1-4616-B66B-E8B5042FFC88}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "autojump.tests", "tests\autojump.tests\autojump.tests.csproj", "{CF18D029-93D1-4616-B66B-E8B5042FFC88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

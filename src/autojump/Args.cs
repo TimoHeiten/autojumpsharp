@@ -15,9 +15,9 @@ public readonly struct Args : IEnumerable<string>
 
     public Args(string[] args)
     {
-        if (args.Length == 0)
+        if (args.Length == 0 || args[0].Contains("help", StringComparison.InvariantCultureIgnoreCase))
         {
-            Name = "FAIL";
+            Name = "EMPTY";
             _args = Array.Empty<string>();
         }
         else
@@ -39,5 +39,20 @@ public readonly struct Args : IEnumerable<string>
     {
         public const string CD = "cd";
         public const string Bump = "bump";
+
+        /// <summary>
+        /// create the initial store
+        /// </summary>
+        public const string Init = "init";
+        /// <summary>
+        /// list all values with counter and last access
+        /// </summary>
+        public const string List = "list";
+        /// <summary>
+        /// run a query on the data store:O
+        /// </summary>
+        public const string Exec = "exec";
+
+        public const string EMPTY = "EMPTY";
     }
 }

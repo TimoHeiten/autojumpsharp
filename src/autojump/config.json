@@ -1,4 +1,4 @@
 ﻿{
   "ConnectionPath" : "G:\\Repos\\autojumpSharp\\tests\\autojump.db",
-  "LogsEnabled" : false
+  "LogsEnabled" : true
 }

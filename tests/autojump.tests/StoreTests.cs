@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using autojump.Store;
 using FluentAssertions;
 using Xunit;
 
@@ -7,12 +8,15 @@ namespace autojump;
 
 public sealed class StoreTests
 {
-    private readonly Lookups _lookups;
+    private readonly Context _context;
+    private readonly SqliteStore _sut;
     public StoreTests()
     {
-        _lookups = Lookups.Default;
+        _context = Context.Default;
         var path = Path.Combine(Environment.CurrentDirectory, "autojump.db"); ;
-        _lookups.Configuration =  new Configuration(path);
+        _context.Configuration =  new Configuration(path);
+        
+        _sut = new SqliteStore(_context);
     }
 
     private void InsertData()
@@ -20,7 +24,7 @@ public sealed class StoreTests
         string cmdTxt(string path, double cnter = 1)
             => $"Insert into locations (path, count) values ('{path}', {cnter})";
 
-        using var connection = SqliteStore.TouchStore(_lookups);
+        using var connection = _sut.TouchStore();
         using var command = connection.CreateCommand();
 
         foreach (var cmd in new[] {
@@ -46,7 +50,7 @@ public sealed class StoreTests
         InsertData();
 
         // Act
-        var result = SqliteStore.Lookup(new[] { arg }, _lookups);
+        var result = _sut.Lookup(new[] { arg });
         
         // Assert
         result.Should().Be(expected);

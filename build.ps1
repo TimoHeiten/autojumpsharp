@@ -21,7 +21,7 @@ function checkExitCode([string] $message) {
 dotnet clean
 checkExitCode "Clean failed"
 
-rmFile .\tests\autojump.db
+rmFile .\test\bin\Debug\net6.0\autojump.db
 rmFile .\tests\bin\Debug\net6.0\test-log.log
 
 # build sln
@@ -32,6 +32,6 @@ checkExitCode "Build failed"
 .\create-db.ps1
 
 # run tests
-dotnet test .\tests\autojump\autojump.csproj
+dotnet test .\tests\autojump.tests\autojump.tests.csproj
 checkExitCode "Tests failed"
 

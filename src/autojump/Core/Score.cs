@@ -1,4 +1,6 @@
-﻿namespace autojump.Core;
+﻿using System;
+
+namespace autojump.Core;
 
 /// <summary>
 /// Holds the algorithm to bump the score of a directory

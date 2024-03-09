@@ -16,15 +16,12 @@ namespace autojump;
 public sealed class IntegrationTests : IDisposable
 {
 
-    // todo -> does not work since the sql connection is not closed -.- ... but it is? another time then
-    // [Fact]
-#pragma warning disable xUnit1004
-    [Fact(Skip = "This is a full cycle test and should be run manually - with a ENV set etc.")] 
-#pragma warning restore xUnit1004
+    [Fact]
+// #pragma warning disable xUnit1004
+//     [Fact(Skip = "This is a full cycle test and should be run manually - with a ENV set etc.")] 
+// #pragma warning restore xUnit1004
     public async Task Run_Full_Cycle()
     {
-        // todo remove and and put into e2escript
-        Environment.SetEnvironmentVariable("AUTOJUMP_DB_PATH", "G:\\tools\\autojump.db");
         // --------------------------------
         // Phase 1 - touch data store
         // --------------------------------
@@ -107,7 +104,7 @@ public sealed class IntegrationTests : IDisposable
 
     private static async Task CheckDb(Func<SQLiteConnection, Task> action)
     {
-        await using var connection = new SQLiteConnection("Data Source="+ Environment.GetEnvironmentVariable("AUTOJUMP_DB_PATH"));
+        await using var connection = new SQLiteConnection("Data Source=C:\\Users\\timoh\\autojump\\autojump.db");
         await connection.OpenAsync();
         try
         {

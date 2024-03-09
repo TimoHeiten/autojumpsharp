@@ -10,8 +10,13 @@ namespace autojump.Store;
 public sealed partial class SqliteStore : IStore
 {
     private readonly Context _context;
-    public SqliteStore(Context context)
-        => _context = context;
+    private readonly IStoreConfiguration _storeConfiguration;
+
+    public SqliteStore(Context context, IStoreConfiguration storeConfiguration)
+    {
+        _context = context;
+        _storeConfiguration = storeConfiguration;
+    }
 
     public readonly record struct Location(long Id, string? Path, DateTime LastAccessed, double Count)
     {

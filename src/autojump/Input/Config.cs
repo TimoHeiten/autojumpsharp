@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using autojump.Core;
 
 namespace autojump.Input;
 
@@ -13,18 +14,12 @@ public static class Config
     /// <returns></returns>
     public static Configuration ReadConfig()
     {
-        var stream = File.OpenRead("config.json");
+        var configPath = Path.Combine(Context.Default.GetUserDir(), "autojump", "config.json");
+        var stream = File.OpenRead(configPath);
         var configuration = System.Text.Json.JsonSerializer.Deserialize<Configuration>(stream)!;
-
-        var value= Environment.GetEnvironmentVariable("AUTOJUMP_DB_PATH");
-        if (value is not null)
-        {
-            configuration = configuration with { ConnectionPath = value };
-        }
-
         return configuration!;
     }
 }
 
-[DebuggerDisplay("ConnectionPath: {ConnectionPath}, LogsEnabled: {LogsEnabled}")]
-public sealed record Configuration(string ConnectionPath, bool LogsEnabled = false);
+[DebuggerDisplay("LogsEnabled: {LogsEnabled}")]
+public sealed record Configuration(bool LogsEnabled = false);

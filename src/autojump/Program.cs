@@ -1,4 +1,5 @@
-﻿using autojump.Core;
+﻿using System;
+using autojump.Core;
 using autojump.Input;
 using autojump.Store;
 
@@ -9,7 +10,8 @@ public static class Program
         // configuration and arguments
         var argv = new Args(args);
         var context = Context.Create(Config.ReadConfig(), Score.Bump);
-        var store = new SqliteStore(context);
+        var storeConfig = new SqliteStoreConfiguration();
+        var store = new SqliteStore(context, storeConfig);
 
         try
         {

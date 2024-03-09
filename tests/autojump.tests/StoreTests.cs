@@ -4,6 +4,7 @@ using autojump.Core;
 using autojump.Input;
 using autojump.Store;
 using FluentAssertions;
+using NSubstitute;
 using Xunit;
 
 namespace autojump;
@@ -12,13 +13,16 @@ public sealed class StoreTests
 {
     private readonly Context _context;
     private readonly SqliteStore _sut;
+    private readonly IStoreConfiguration _storeConfig = Substitute.For<IStoreConfiguration>();
+    
     public StoreTests()
     {
         _context = Context.Default;
-        var path = Path.Combine(Environment.CurrentDirectory, "autojump.db"); ;
-        _context.Configuration =  new Configuration(path);
+        _storeConfig.ConnectionPath().Returns(Path.Combine(Environment.CurrentDirectory, "autojump.db"));
+        _storeConfig.DatabaseName().Returns("autojump.db");
+        _context.Configuration =  new Configuration();
         
-        _sut = new SqliteStore(_context);
+        _sut = new SqliteStore(_context, _storeConfig);
     }
 
     private void InsertData()

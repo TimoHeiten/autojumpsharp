@@ -1,4 +1,5 @@
-﻿using autojump.Input;
+﻿using System;
+using autojump.Input;
 
 namespace autojump.Core;
 
@@ -18,7 +19,7 @@ public sealed class Context // could also be named context or similar things
     /// <summary>
     /// The parsed configuration 
     /// </summary>
-    public Configuration Configuration { get; set; } = new("");
+    public Configuration Configuration { get; set; } = new();
     // ReSharper disable once InconsistentNaming
     /// <summary>
     /// Essentially a callback that indirects the bump alogrithm.

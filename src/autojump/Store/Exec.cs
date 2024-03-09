@@ -25,7 +25,7 @@ public class Exec
     /// <param name="context"></param>
     protected virtual void exec(string sql, Context context)
     {
-        var store = new SqliteStore(context);
+        var store = new SqliteStore(context, new SqliteStoreConfiguration());
         using var connection = store.TouchStore();
         using var command = connection.CreateCommand();
         command.CommandText = sql;

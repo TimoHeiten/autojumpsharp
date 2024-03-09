@@ -8,8 +8,8 @@ public sealed partial class SqliteStore
     public SQLiteConnection TouchStore()
     {
         // create a new sqlite db if none exists at the user directory + autojump.db
-        var path = _context.Configuration.ConnectionPath;
-
+        var path = _storeConfiguration.ConnectionPath();
+        
         bool isInitial = !File.Exists(path);
         if (isInitial)
         {

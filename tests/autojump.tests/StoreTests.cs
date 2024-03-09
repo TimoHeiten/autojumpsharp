@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using autojump.Core;
+using autojump.Input;
 using autojump.Store;
 using FluentAssertions;
 using Xunit;

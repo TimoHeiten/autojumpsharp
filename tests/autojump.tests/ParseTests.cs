@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using autojump.Core;
+using autojump.Input;
 using autojump.Store;
 using FluentAssertions;
 using NSubstitute;
@@ -38,7 +40,7 @@ public sealed class ParseTests
         var args = new Args(new [] { cd });
 
         // Act
-        var func = Program.SelectCommand(args, _context);
+        var func = Commands.SelectCommand(args, _context);
         var results = func.Invoke(_store);
 
         // Assert
@@ -51,7 +53,7 @@ public sealed class ParseTests
     {
         // Arrange
         var args = new Args(new[] { "no match" });
-        var sut = Program.SelectCommand(args, _context);
+        var sut = Commands.SelectCommand(args, _context);
 
         // Act
         var command = sut;

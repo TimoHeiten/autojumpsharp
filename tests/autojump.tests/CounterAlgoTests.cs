@@ -1,4 +1,5 @@
 ﻿using System;
+using autojump.Core;
 using FluentAssertions;
 using Xunit;
 
@@ -12,7 +13,7 @@ public sealed class CounterAlgoTests
         var currentCount = 1;
         
         // Act
-        var result = Program.Bump(lastAccessed, currentCount);
+        var result = Score.Bump(lastAccessed, currentCount);
         
         // Assert
         result.Should().Be(expected);

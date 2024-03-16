@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E356354B-79F7-4385-A062-42D4E0505986}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "autojump", "src\autojump\autojump.csproj", "{3573D4C6-3BBA-409A-A719-80481C06FB7C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1490437E-9551-451B-A5AC-D3AAB33D9363}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "autojump.tests", "tests\autojump.tests\autojump.tests.csproj", "{CF18D029-93D1-4616-B66B-E8B5042FFC88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3573D4C6-3BBA-409A-A719-80481C06FB7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3573D4C6-3BBA-409A-A719-80481C06FB7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3573D4C6-3BBA-409A-A719-80481C06FB7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3573D4C6-3BBA-409A-A719-80481C06FB7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF18D029-93D1-4616-B66B-E8B5042FFC88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF18D029-93D1-4616-B66B-E8B5042FFC88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF18D029-93D1-4616-B66B-E8B5042FFC88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF18D029-93D1-4616-B66B-E8B5042FFC88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3573D4C6-3BBA-409A-A719-80481C06FB7C} = {E356354B-79F7-4385-A062-42D4E0505986}
+		{CF18D029-93D1-4616-B66B-E8B5042FFC88} = {1490437E-9551-451B-A5AC-D3AAB33D9363}
+	EndGlobalSection
+EndGlobal

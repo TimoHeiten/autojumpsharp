@@ -35,4 +35,4 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./src/autojump/autojump.csproj
     - name: Test
-      run: dotnet test --no-restore ./tests/autojump.tests/autojump.tests.csproj
+      run: dotnet test --no-restore 

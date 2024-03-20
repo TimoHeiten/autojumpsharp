@@ -22,7 +22,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore ./src/autojump/autojump.csproj
 
-  backend-core-tests:
+  test:
   
     runs-on: ubuntu-latest
     
@@ -35,4 +35,4 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./src/autojump/autojump.csproj
     - name: Test
-      run: dotnet test --no-restore --verbosity normal ./tests/autojump.tests/autojump.tests.csproj
+      run: dotnet test --no-restore ./tests/autojump.tests/autojump.tests.csproj
